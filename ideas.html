@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea Vault – Stealable startup concepts</title>
+  <style>
+    :root {
+      --bg: #0f0a13;
+      --card: #1a0f23;
+      --accent: #a78bfa;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --success: #10b981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: system-ui, sans-serif; 
+      background: linear-gradient(135deg, #0f0a13 0%, #1a0f23 50%, #0f0a13 100%);
+      color: var(--text);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+    
+    /* Header */
+    header { text-align: center; padding: 4rem 0; }
+    .logo { 
+      font-size: 3rem; font-weight: 900; 
+      background: linear-gradient(135deg, var(--accent), #c084fc); 
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    
+    /* Idea grid */
+    .ideas-grid { 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin: 3rem 0;
+    }
+    .idea-card { 
+      background: var(--card); border-radius: 20px; padding: 2.5rem 2rem; 
+      border: 2px dashed rgba(167,139,250,0.4); position: relative; transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .idea-card:hover { 
+      border-style: solid; border-color: var(--accent); 
+      transform: scale(1.02); box-shadow: 0 20px 40px rgba(167,139,250,0.3);
+    }
+    .steal-badge { 
+      position: absolute; top: 1rem; right: 1rem;
+      background: linear-gradient(135deg, var(--accent), #c084fc); color: #0f0a13;
+      padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+    }
+    .idea-type { 
+      color: var(--accent); font-size: 0.85rem; font-weight: 600; 
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+    }
+    .idea-title { 
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.3;
+    }
+    .idea-problem { 
+      background: rgba(167,139,250,0.1); padding: 1.5rem; border-radius: 12px; 
+      margin-bottom: 1.5rem; border-left: 4px solid var(--accent);
+    }
+    .idea-mvp { 
+      background: rgba(16,185,129,0.1); padding: 1.5rem; border-radius: 12px; 
+      border-left: 4px solid var(--success);
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .tag { 
+      background: rgba(167,139,250,0.2); color: var(--accent); 
+      padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+      .ideas-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Idea Vault</h1>
+    <p style="font-size: 1.3rem; color: var(--muted); max-width: 700px; margin: 1rem auto 0; line-height: 1.6;">
+      50+ stealable startup ideas, validated problems, and weekend MVP blueprints
+    </p>
+  </header>
+
+  <div class="container">
+    <div class="ideas-grid">
+      <div class="idea-card">
+        <div class="steal-badge">STEAL →</div>
+        <div class="idea-type">TIER-2 JOB MATCHING</div>
+        <h2 class="idea-title">"Resume-to-role" matcher for freshers</h2>
+        <div class="idea-problem">
+          <strong>Problem:</strong> Tier-2/3 college grads get filtered by college name, not skills. BPOs need reliable freshers FAST.
+        </div>
+        <div class="idea-mvp">
+          <strong>Weekend MVP:</strong> Upload resume → AI scores for BPO/Support/Dev roles → Direct apply to 50+ Haryana companies
+        </div>
+        <div class="tags">
+          <span class="tag">Jobs</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">India</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="steal-badge">STEAL →</div>
+        <div class="idea-type">FOUNDER TOOLS</div>
+        <h2 class="idea-title">Monthly investor update generator</h2>
+        <div class="idea-problem">
+          <strong>Problem:</strong> Founders waste 4+ hours/month writing investor updates. VCs ignore inconsistent communicators.
+        </div>
+        <div class="idea-mvp">
+          <strong>Weekend MVP:</strong> Input metrics → Auto-generates PDF + share link with open analytics. $19/mo.
+        </div>
+        <div class="tags">
+          <span class="tag">SaaS</span>
+          <span class="tag">B2B</span>
+          <span class="tag">No-code</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="steal-badge">STEAL →</div>
+        <div class="idea-type">COMMUNITY</div>
+        <h2 class="idea-title">"Build with me" accountability rooms</h2>
+        <div class="idea-problem">
+          <strong>Problem:</strong> Solo founders flake without accountability. Paid communities too generic.
+        </div>
+        <div class="idea-mvp">
+          <strong>Weekend MVP:</strong> 90-min video sprints + weekly demo day. $29/mo per track (SaaS, No-code, etc.)
+        </div>
+        <div class="tags">
+          <span class="tag">Community</span>
+          <span class="tag">Subscription</span>
+          <span class="tag">Accountability</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="steal-badge">STEAL →</div>
+        <div class="idea-type">LOCAL SERVICE</div>
+        <h2 class="idea-title">AC repair aggregator for tier-2 cities</h2>
+        <div class="idea-problem">
+          <strong>Problem:</strong> Narnaund needs AC repair NOW during summers. Unreliable local technicians.
+        </div>
+        <div class="idea-mvp">
+          <strong>Weekend MVP:</strong> WhatsApp bot → Tech arrives in 90 min → Pay after service. 20% commission.
+        </div>
+        <div class="tags">
+          <span class="tag">Local</span>
+          <span class="tag">Services</span>
+          <span class="tag">WhatsApp</span>
+          <span class="tag">Haryana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

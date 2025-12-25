@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Daily – News, Stories & Ideas</title>
+  <meta name="description" content="Latest startup news, founder stories, and business ideas in one place.">
+  <style>
+    /* ---------- Base styles ---------- */
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --card: #111827;
+      --accent: #00e5ff;
+      --accent-soft: rgba(0, 229, 255, 0.1);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- Layout ---------- */
+    .shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* ---------- Navbar ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.86));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #00e5ff, #6366f1 55%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #0b1020;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), 0 0 28px rgba(56, 189, 248, 0.9);
+    }
+
+    .brand-text-main {
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+    }
+
+    .brand-text-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      transition: 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-ghost {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(15, 23, 42, 1);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-solid {
+      font-size: 0.8rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22d3ee, #6366f1);
+      color: #0b1020;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.55);
+      transition: 0.25s ease;
+    }
+
+    .btn-solid span {
+      font-size: 1rem;
+    }
+
+    .btn-solid:hover {
+      transform: translateY(-1px) translateZ(0);
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.8);
+      filter: saturate(1.2);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      margin-top: 2rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-kicker-pill {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      color: #67e8f9;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(120deg, #e5e7eb, #22d3ee, #a5b4fc);
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-sub {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 31rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 50%), radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.27), #020617 70%);
+      border-radius: 24px;
+      padding: 1.5rem 1.4rem 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card-tag {
+      font-size: 0.72rem;
+      padding: 0.27rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-card-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: #a5b4fc;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      font-weight: 650;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-meta span {
+      display: inline-flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .hero-card-meta-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    .hero-card-body {
+      font-size: 0.83rem;
+      color: #e5e7eb;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-footer a {
+      color: #67e8f9;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 500;
+    }
+
+    .hero-badge-strip {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #9ca3af;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      white-space: nowrap;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40px;
+      border-radius: 30px;
+      border: 1px solid rgba(56, 189, 248, 0.12);
+      pointer-events: none;
+    }
+
+    /* ---------- Sections ---------- */
+    .section-head {
+      margin-top: 3rem;
+      margin-bottom: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .section-filter {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .chip {
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      transition: 0.2s;
+    }
+
+    .chip--active {
+      border-color: var(--accent);
+      background: rgba(8, 47, 73, 0.9);
+      color: #e0f2fe;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    /* ---------- Grids ---------- */
+    .grid {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .grid--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* ---------- Cards ---------- */
+    .card {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 70%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(30, 64, 175, 0.6);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
+      padding: 1rem 1rem 1.05rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-2px);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.9);
+    }
+
+    .card-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .card-tag {
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.62rem;
+    }
+
+    .card-time {
+      display: inline-flex;
+      gap: 0.28rem;
+      align-items: center;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 620;
+    }
+
+    .card-excerpt {
+      font-size: 0.8rem;
+      color: #d1d5db;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .card-author {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .card-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22d3ee, #6366f1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #020617;
+      font-weight: 700;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #67e8f9;
+    }
+
+    .pill-idea {
+      position: absolute;
+      right: 0.8rem;
+      bottom: 0.8rem;
+      font-size: 0.65rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(56, 189, 248, 0.5);
+      color: #a5b4fc;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    /* ---------- Sidebar section ---------- */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    .widget {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 70%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.95);
+    }
+
+    .widget-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .widget-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.8rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.4);
+    }
+
+    .widget-item:last-child {
+      border-bottom: none;
+    }
+
+    .widget-item span {
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .idea-list li {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.45);
+    }
+
+    .idea-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* ---------- Newsletter ---------- */
+    .newsletter {
+      margin-top: 2.5rem;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(129, 140, 248, 0.24));
+      border-radius: 20px;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .newsletter h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .newsletter p {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: flex-end;
+    }
+
+    .newsletter-input-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 0.55rem 0.8rem 0.55rem 2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      outline: none;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .newsletter input::placeholder {
+      color: #6b7280;
+    }
+
+    .newsletter-input-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #9ca3af;
+    }
+
+    footer a:hover {
+      color: #e5e7eb;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero,
+      .two-column,
+      .newsletter {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        margin-top: 1.6rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .grid--3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding-inline: 1rem;
+      }
+
+      .hero,
+      .two-column {
+        margin-top: 1.5rem;
+        gap: 1.25rem;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .grid--3,
+      .grid--2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .newsletter {
+        padding: 1.1rem 1.1rem 1.2rem;
+      }
+
+      .nav-cta .btn-ghost {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-logo">SBB</div>
+        <div>
+          <div class="brand-text-main">Startup  By Brothers</div>
+          <div class="brand-text-sub">News • Stories • Ideas</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="news.html">News</a>
+        <a href="stories.html">Founder stories</a>
+        <a href="ideas.html">Idea vault</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn-ghost">Submit story</button>
+        <button class="btn-solid">
+          Get weekly brief
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">
+          <span class="hero-kicker-pill">Early-stage & indie founders</span>
+          Daily signal, zero noise
+        </div>
+        <h1 class="hero-title">
+          Your front row seat to
+          <span class="hero-gradient">startup news, founder stories, and idea sparks.</span>
+        </h1>
+        <p class="hero-sub">
+          Discover what builders are launching, how they think, and the next ideas worth
+          stealing for your own startup.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-solid">
+            Start reading
+            <span>⚡</span>
+          </button>
+          <button class="btn-ghost">Pitch your startup</button>
+        </div>
+        <div class="hero-meta">
+          <span><strong>5-min reads</strong> built for busy builders</span>
+          <span><strong>3x weekly</strong> new stories & ideas</span>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="hero-card-tag">Today’s front page</span>
+            <span style="font-size: 0.7rem; color: #cbd5f5;">Issue #02 • Dec 2025</span>
+          </div>
+          <div class="hero-card-eyebrow">Feature story</div>
+          <h2 class="hero-card-title">
+            *“From IIT Dreamer to Steel Tycoon – The Story of Naveen Jindal”*
+          </h2>
+          <div class="hero-card-meta">
+            <span>👤 By P. Malik</span>
+            <span class="hero-card-meta-dot"></span>
+            <span>⏱ 7 min read</span>
+          </div>
+          <p class="hero-card-body">
+             How Naveen Jindal Built a Global Steel Empire
+          </p>
+          <div class="hero-card-footer">
+            <a href="https://www.instagram.com/startupbybrothers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+              Read full story
+              <span>↗</span>
+            </a>
+            <span>Trending in: Indie SaaS</span>
+          </div>
+          <div class="hero-badge-strip">
+            <span class="hero-badge">Playbooks</span>
+            <span class="hero-badge">Zero-to-one</span>
+            <span class="hero-badge">Bootstrapping</span>
+            <span class="hero-badge">India stack</span>
+          </div>
+        </div>
+        <div class="hero-orbit"></div>
+      </aside>
+    </section>
+
+    <!-- Latest news -->
+    <section id="news">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Latest startup news</div>
+          <p class="section-sub">
+            Quick hits on funding, launches, and ecosystem shifts.
+          </p>
+        </div>
+        <div class="section-filter">
+          <span>Filter:</span>
+          <button class="chip chip--active">All</button>
+          <button class="chip">India</button>
+          <button class="chip">Global</button>
+          <button class="chip">Fintech</button>
+        </div>
+      </div>
+
+      <div class="grid grid--3">
+        <!-- News card 1 -->
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Funding</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              2 hours ago
+            </span>
+          </div>
+          <h3 class="card-title">
+            Gurgaon-based logistics startup raises $4.2M seed to fix tier-2 delivery gaps.
+          </h3>
+          <p class="card-excerpt">
+            The round, led by local angels and a global logistics fund, will fuel dark
+            warehouses across North India and a new driver app.
+          </p>
+          <div class="card-footer">
+            <div class="card-author">
+              <span class="card-avatar">AK</span>
+              <span>By Ankit Kumar</span>
+            </div>
+            <a href="#" class="card-cta">
+              Read brief
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- News card 2 -->
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Launch</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              Today
+            </span>
+          </div>
+          <h3 class="card-title">
+            New creator tool helps solo founders generate investor-ready pitch decks in minutes.
+          </h3>
+          <p class="card-excerpt">
+            The AI-first product promises clean storytelling, market maps, and metrics pages
+            tuned to what early-stage investors expect.
+          </p>
+          <div class="card-footer">
+            <div class="card-author">
+              <span class="card-avatar">RS</span>
+              <span>By Rhea Singh</span>
+            </div>
+            <a href="#" class="card-cta">
+              Read brief
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- News card 3 -->
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Ecosystem</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              Yesterday
+            </span>
+          </div>
+          <h3 class="card-title">
+            State-backed incubator opens applications for 2026 cohort focused on climate tech.
+          </h3>
+          <p class="card-excerpt">
+            From energy storage to smart agriculture, selected startups get grants, labs,
+            and hands-on mentoring from operators.
+          </p>
+          <div class="card-footer">
+            <div class="card-author">
+              <span class="card-avatar">MB</span>
+              <span>By Meera B.</span>
+            </div>
+            <a href="#" class="card-cta">
+              Read brief
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Founder stories + sidebar -->
+    <section id="stories" class="two-column">
+      <div>
+        <div class="section-head">
+          <div>
+            <div class="section-title">Founder deep dives</div>
+            <p class="section-sub">
+              Long-form stories on how real builders ship, sell, and survive.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <div class="card-tag-row">
+              <span class="card-tag">Playbook</span>
+              <span class="card-time">
+                <span class="dot"></span>
+                13 min read
+              </span>
+            </div>
+            <h3 class="card-title">
+              From electrical engineer to SaaS founder: using nights and weekends to ship v1.
+            </h3>
+            <p class="card-excerpt">
+              A candid breakdown of how a first-time founder shipped MVP, found first 20 users,
+              and handled a full-time job on the side.
+            </p>
+            <div class="card-footer">
+              <div class="card-author">
+                <span class="card-avatar">YS</span>
+                <span>With Yash S.</span>
+              </div>
+              <a href="#" class="card-cta">
+                Read story
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-tag-row">
+              <span class="card-tag">Failure file</span>
+              <span class="card-time">
+                <span class="dot"></span>
+                9 min read
+              </span>
+            </div>
+            <h3 class="card-title">
+              3 ideas, 0 traction: what this founder changed before their first breakout product.
+            </h3>
+            <p class="card-excerpt">
+              Brutally honest lessons on validation, pricing, and shipping too slow in a noisy
+              market — plus the simple system that finally worked.
+            </p>
+            <div class="card-footer">
+              <div class="card-author">
+                <span class="card-avatar">NP</span>
+                <span>With Nidhi P.</span>
+              </div>
+              <a href="#" class="card-cta">
+                Read story
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside>
+        <div class="widget">
+          <div class="widget-title">This week’s most read</div>
+          <div class="widget-item">
+            <span>10 founder mistakes in year one</span>
+            <span>7 min</span>
+          </div>
+          <div class="widget-item">
+            <span>How to pitch when you hate networking</span>
+            <span>5 min</span>
+          </div>
+          <div class="widget-item">
+            <span>Inside a YC interview: founder notes</span>
+            <span>8 min</span>
+          </div>
+          <div class="widget-item">
+            <span>Building a startup from a small town</span>
+            <span>6 min</span>
+          </div>
+        </div>
+
+        <div class="widget" style="margin-top: 1rem;">
+          <div class="widget-title">Submit your story</div>
+          <p style="font-size: 0.8rem; color: #e5e7eb; margin-bottom: 0.7rem;">
+            Are you a founder, indie hacker, or student builder? Share your journey and get
+            featured.
+          </p>
+          <button class="btn-solid" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+            Email your story
+          </button>
+          <p style="font-size: 0.7rem; color: #9ca3af; margin-top: 0.45rem;">
+            Outline your product, stage, key numbers, and the one lesson others should steal.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Idea vault -->
+    <section id="ideas">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Idea vault</div>
+          <p class="section-sub">
+            Raw, unpolished ideas and prompts to spark your next build.
+          </p>
+        </div>
+        <div class="section-filter">
+          <span>Mode:</span>
+          <button class="chip chip--active">Idea only</button>
+          <button class="chip">Idea + roadmap</button>
+        </div>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Problem</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              Discovery
+            </span>
+          </div>
+          <h3 class="card-title">
+            “Resume to role” matcher for freshers from tier-2/3 colleges.
+          </h3>
+          <p class="card-excerpt">
+            Use skills + project signals instead of college name to match candidates with BPO,
+            support, or junior dev roles, built first for India.
+          </p>
+          <div class="card-footer">
+            <span>Tags: Jobs, SaaS, India</span>
+          </div>
+          <span class="pill-idea">Steal this idea →</span>
+        </article>
+
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Microsaas</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              Weekend build
+            </span>
+          </div>
+          <h3 class="card-title">
+            Simple “founder update” page you can email to investors each month.
+          </h3>
+          <p class="card-excerpt">
+            Pre-built sections for metrics, asks, and wins. Export to PDF + share link, with
+            basic analytics on who actually opened it.
+          </p>
+          <div class="card-footer">
+            <span>Tags: B2B, tools</span>
+          </div>
+          <span class="pill-idea">Steal this idea →</span>
+        </article>
+
+        <article class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">Community</span>
+            <span class="card-time">
+              <span class="dot"></span>
+              Alpha
+            </span>
+          </div>
+          <h3 class="card-title">
+            “Build with me” accountability rooms for solo founders.
+          </h3>
+          <p class="card-excerpt">
+            Time-boxed sprints on video, with weekly demo day. Charge for curated rooms and
+            operator-led tracks.
+          </p>
+          <div class="card-footer">
+            <span>Tags: Community, subscriptions</span>
+          </div>
+          <span class="pill-idea">Steal this idea →</span>
+        </article>
+      </div>
+
+      <div class="two-column" style="margin-top: 1.8rem;">
+        <div class="widget">
+          <div class="widget-title">How to use this vault</div>
+          <ul class="idea-list">
+            <li>Pick one idea and rewrite it for the problem you see in your city, domain, or friend circle.</li>
+            <li>Design a one-page landing and share it with 20 people before writing a single line of code.</li>
+            <li>Use each idea as a prompt to practice landing-page copy, UI, or quick pitch decks.</li>
+          </ul>
+        </div>
+        <div class="widget">
+          <div class="widget-title">Coming soon</div>
+          <ul class="idea-list">
+            <li>Notion template with all ideas, sorted by difficulty.</li>
+            <li>“Built from the vault” wall of startups shipping these ideas.</li>
+            <li>Monthly live teardown of 3 subscriber ideas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div>
+        <h3>Get the 5-minute founder brief in your inbox.</h3>
+        <p>
+          Every Monday, Wednesday, and Friday — one news hit, one story, and one idea you
+          can apply immediately.
+        </p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <div class="newsletter-input-wrap">
+          <span class="newsletter-input-icon">@</span>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <button class="btn-solid" type="submit">
+          Join free
+          <span>→</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2025 Startup Daily. Built for early-stage founders.</span>
+    <span>
+      <a href="#news">News</a> •
+      <a href="#stories">Stories</a> •
+      <a href="#ideas">Ideas</a>
+    </span>
+  </footer>
+</body>
+</html>
